@@ -9,7 +9,7 @@ const Content = () => {
         <article>
           <h1>
             <small>React + Contentful</small>
-            React Contentful Homepage Starter
+            Property Website using React Contentful 
           </h1>
           <p>
             Clone, edit, and customize this starter to build your own React app.
@@ -30,18 +30,7 @@ const Content = () => {
       <section className="river">
         <img src={screens} alt="React + Contentful" aria-hidden="true" />
         <article>
-          <h2>Get started using React</h2>
-          <p>
-            Filter paintings based on their Contentful tag using the checkboxes
-            below.
-          </p>
-
-          <ul>
-            <li>Fetches data from the Contentful REST API</li>
-            <li>
-              Filter data using React's <code>useState</code> hook
-            </li>
-          </ul>
+          <h2>Welcome to SRS Enterprises</h2>
         </article>
       </section>
     </>
