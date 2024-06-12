@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import { useState } from 'react'
 import { Spinner } from '@contentful/f36-spinner'
 import { createClient } from 'contentful'
-import Painting from './Painting'
+import Property from './Property'
 import Content from './Content'
 
 const client = createClient({
@@ -11,7 +11,7 @@ const client = createClient({
 })
 
 const fetcher = async () => {
-  const entryItems = await client.getEntries({ content_type: 'painting' })
+  const entryItems = await client.getEntries({ content_type: 'property' })
   const tagItems = await client.getTags()
 
   const tags = tagItems.items.map((tag) => tag.name)
@@ -21,10 +21,10 @@ const fetcher = async () => {
   const entries = entryItems.items.map((entry) => {
     const { fields } = entry
     return {
-      name: fields.name,
+      name: fields.propertyName,
       image: fields.image.fields.file.url,
       alt: fields.image.fields.title,
-      artist: fields.artist.fields.name,
+      developer: fields.developer.fields.name,
       tags: entry.metadata.tags
         .map((t) => tagItems.items.find((ti) => ti.sys.id === t.sys.id))
         .map((t) => t.name),
@@ -68,21 +68,21 @@ function App() {
     )
   })
 
-  const paintings = entries
-    .filter((painting) => {
+  const properties = entries
+    .filter((property) => {
       if (selectedTags.length === 0) return true
-      const found = painting.tags.some((r) => selectedTags.includes(r))
+      const found = property.tags.some((r) => selectedTags.includes(r))
       return found
     })
     .map(({ name, image, alt, artist }, i) => {
       return (
-        <Painting
+        <Property
           key={i}
           name={name}
           image={image}
           alt={alt}
           artist={artist}
-        ></Painting>
+        ></Property>
       )
     })
 
@@ -92,7 +92,7 @@ function App() {
       <p className="tags">
         👉<b>Tags</b>:{checkboxes}
       </p>
-      <div className="grid">{paintings}</div>
+      <div className="grid">{properties}</div>
     </main>
   )
 }
