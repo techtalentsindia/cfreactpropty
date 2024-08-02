@@ -5,7 +5,6 @@ const Content = () => {
   return (
     <>
       <section className="river">
-        <img src={screens} alt="React + Contentful" aria-hidden="true" />
         <article>
           <h2>Welcome to SRS Enterprises</h2>
         </article>
