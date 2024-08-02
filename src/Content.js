@@ -14,17 +14,7 @@ const Content = () => {
           <p>
             Clone, edit, and customize this starter to build your own React app.
           </p>
-          <div className="buttons">
-            <button className="button-large">
-              <a href="https://www.contentful.com/contentful-and-javascript-tutorial">
-                Read more
-              </a>
-            </button>
-
-            <button className="button-large button-secondary">
-              <a href="https://github.com/contentful/react-starter">GitHub</a>
-            </button>
-          </div>
+          
         </article>
       </section>
       <section className="river">
