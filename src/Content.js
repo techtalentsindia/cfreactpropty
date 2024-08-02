@@ -10,11 +10,7 @@ const Content = () => {
           <h1>
             <small>React + Contentful</small>
             Property Website using React Contentful 
-          </h1>
-          <p>
-            Clone, edit, and customize this starter to build your own React app.
-          </p>
-          
+          </h1>         
         </article>
       </section>
       <section className="river">
